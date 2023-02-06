@@ -13,7 +13,7 @@ namespace Project_Cms_v6.Models
         public string LastName { get; set; }
         public string Phone { get; set; }
         public DateTime BirthDate { get; set; }
-        public int Salary { get; set; }
+        public int? Salary { get; set; }
         public string Email { get; set; }
         public Gender Gender { get; set; }
         [ForeignKey("Manager")]
@@ -23,7 +23,10 @@ namespace Project_Cms_v6.Models
         public List<Employees>? EmployeesManager { get; set; }
         public int? Departments_Id { get; set; }
         [ForeignKey("Departments_Id")]
-        public Departments? Departements { get; set; }
+        public Departments? Departments { get; set; }
+        [InverseProperty("Manager")]
+        public Departments Manager_Department { get; set; }
+
     }
     public enum Gender
     {

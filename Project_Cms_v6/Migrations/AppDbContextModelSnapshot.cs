@@ -24,25 +24,17 @@ namespace Project_Cms_v6.Migrations
 
             modelBuilder.Entity("Project_Cms_v6.Models.AccountRoles", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
                     b.Property<string>("AccountNIK")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("RoleId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
-
                     b.HasIndex("AccountNIK");
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AccountRoles");
+                    b.ToTable("AccountRoles", (string)null);
                 });
 
             modelBuilder.Entity("Project_Cms_v6.Models.Accounts", b =>
@@ -55,7 +47,7 @@ namespace Project_Cms_v6.Migrations
 
                     b.HasKey("NIK");
 
-                    b.ToTable("Accounts");
+                    b.ToTable("Accounts", (string)null);
                 });
 
             modelBuilder.Entity("Project_Cms_v6.Models.Departments", b =>
@@ -67,14 +59,18 @@ namespace Project_Cms_v6.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Manager_Id")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Departements");
+                    b.HasIndex("Manager_Id")
+                        .IsUnique()
+                        .HasFilter("[Manager_Id] IS NOT NULL");
+
+                    b.ToTable("Departments", (string)null);
                 });
 
             modelBuilder.Entity("Project_Cms_v6.Models.Employees", b =>
@@ -106,7 +102,7 @@ namespace Project_Cms_v6.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Salary")
+                    b.Property<int?>("Salary")
                         .HasColumnType("int");
 
                     b.HasKey("NIK");
@@ -115,7 +111,7 @@ namespace Project_Cms_v6.Migrations
 
                     b.HasIndex("Manager_Id");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employees", (string)null);
                 });
 
             modelBuilder.Entity("Project_Cms_v6.Models.Roles", b =>
@@ -131,7 +127,7 @@ namespace Project_Cms_v6.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Roles", (string)null);
                 });
 
             modelBuilder.Entity("Project_Cms_v6.Models.AccountRoles", b =>
@@ -162,19 +158,33 @@ namespace Project_Cms_v6.Migrations
                     b.Navigation("Employees");
                 });
 
+            modelBuilder.Entity("Project_Cms_v6.Models.Departments", b =>
+                {
+                    b.HasOne("Project_Cms_v6.Models.Employees", "Manager")
+                        .WithOne("Manager_Department")
+                        .HasForeignKey("Project_Cms_v6.Models.Departments", "Manager_Id");
+
+                    b.Navigation("Manager");
+                });
+
             modelBuilder.Entity("Project_Cms_v6.Models.Employees", b =>
                 {
-                    b.HasOne("Project_Cms_v6.Models.Departments", "Departements")
-                        .WithMany()
+                    b.HasOne("Project_Cms_v6.Models.Departments", "Departments")
+                        .WithMany("Employees")
                         .HasForeignKey("Departments_Id");
 
                     b.HasOne("Project_Cms_v6.Models.Employees", "Manager")
                         .WithMany("EmployeesManager")
                         .HasForeignKey("Manager_Id");
 
-                    b.Navigation("Departements");
+                    b.Navigation("Departments");
 
                     b.Navigation("Manager");
+                });
+
+            modelBuilder.Entity("Project_Cms_v6.Models.Departments", b =>
+                {
+                    b.Navigation("Employees");
                 });
 
             modelBuilder.Entity("Project_Cms_v6.Models.Employees", b =>
@@ -182,6 +192,8 @@ namespace Project_Cms_v6.Migrations
                     b.Navigation("Accounts");
 
                     b.Navigation("EmployeesManager");
+
+                    b.Navigation("Manager_Department");
                 });
 #pragma warning restore 612, 618
         }

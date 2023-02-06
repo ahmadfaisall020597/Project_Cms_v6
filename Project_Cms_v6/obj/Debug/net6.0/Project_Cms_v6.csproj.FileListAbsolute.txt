@@ -5,7 +5,9 @@ D:\Project\Project_Cms_v6\Project_Cms_v6\Project_Cms_v6\bin\Debug\net6.0\Project
 D:\Project\Project_Cms_v6\Project_Cms_v6\Project_Cms_v6\bin\Debug\net6.0\Project_Cms_v6.runtimeconfig.json
 D:\Project\Project_Cms_v6\Project_Cms_v6\Project_Cms_v6\bin\Debug\net6.0\Project_Cms_v6.dll
 D:\Project\Project_Cms_v6\Project_Cms_v6\Project_Cms_v6\bin\Debug\net6.0\Project_Cms_v6.pdb
+D:\Project\Project_Cms_v6\Project_Cms_v6\Project_Cms_v6\bin\Debug\net6.0\BCrypt.Net-Next.dll
 D:\Project\Project_Cms_v6\Project_Cms_v6\Project_Cms_v6\bin\Debug\net6.0\Castle.Core.dll
+D:\Project\Project_Cms_v6\Project_Cms_v6\Project_Cms_v6\bin\Debug\net6.0\Dapper.dll
 D:\Project\Project_Cms_v6\Project_Cms_v6\Project_Cms_v6\bin\Debug\net6.0\Humanizer.dll
 D:\Project\Project_Cms_v6\Project_Cms_v6\Project_Cms_v6\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 D:\Project\Project_Cms_v6\Project_Cms_v6\Project_Cms_v6\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
@@ -73,3 +75,4 @@ D:\Project\Project_Cms_v6\Project_Cms_v6\Project_Cms_v6\obj\Debug\net6.0\refint\
 D:\Project\Project_Cms_v6\Project_Cms_v6\Project_Cms_v6\obj\Debug\net6.0\Project_Cms_v6.pdb
 D:\Project\Project_Cms_v6\Project_Cms_v6\Project_Cms_v6\obj\Debug\net6.0\Project_Cms_v6.genruntimeconfig.cache
 D:\Project\Project_Cms_v6\Project_Cms_v6\Project_Cms_v6\obj\Debug\net6.0\ref\Project_Cms_v6.dll
+D:\Project\Project_Cms_v6\Project_Cms_v6\Project_Cms_v6\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

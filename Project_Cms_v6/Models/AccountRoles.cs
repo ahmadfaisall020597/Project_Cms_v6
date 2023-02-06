@@ -5,7 +5,6 @@ namespace Project_Cms_v6.Models
 {
     public class AccountRoles
     {
-        public int Id { get; set; }
         [ForeignKey("Roles")]
         public int RoleId { get; set; }
         public Roles Roles { get; set; }
