@@ -7,6 +7,12 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Settings Cors
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+{
+    builder.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
+}));
+
 // Add services to the container.
 
 // Settings Controller, NewtonSoftJson
@@ -15,9 +21,6 @@ builder.Services.AddControllers().AddNewtonsoftJson(
 
 // Settings DbContext
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("APICms")));
-
-// Settings Cors
-builder.Services.AddCors(c => { c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()); });
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -56,6 +59,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("corsapp");
 
 app.UseHttpsRedirection();
 

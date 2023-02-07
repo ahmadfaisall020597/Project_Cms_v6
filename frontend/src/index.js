@@ -4,14 +4,20 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPage from './Auth/Login/LoginPage';
+import DashboardPage from './Component/Dashboard/DashboardPage';
+import { Provider } from "react-redux";
+import { store } from './Auth/Login/index';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    <Provider store={store}>  
       <Routes>
         <Route path="/" element={<LoginPage/>}/>
+        <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );
