@@ -7,6 +7,7 @@ import LoginPage from './Auth/Login/LoginPage';
 import DashboardPage from './Component/Dashboard/DashboardPage';
 import { Provider } from "react-redux";
 import { store } from './Auth/Login/index';
+import RegisterPage from './Auth/Register/Register';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +16,11 @@ root.render(
     <Provider store={store}>  
       <Routes>
         <Route path="/" element={<LoginPage/>}/>
+        <Route path="/register" element={<RegisterPage/>}/>
         <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path='/dashboard/input-employees' element={<DashboardPage slug="input-employees"/>} />
+        <Route path='/dashboard/input-department' element={<DashboardPage slug="input-department"/>} />
+        <Route path='/dashboard/input-roles' element={<DashboardPage slug="input-roles"/>} />
       </Routes>
       </Provider>
     </BrowserRouter>

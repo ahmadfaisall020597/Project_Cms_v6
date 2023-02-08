@@ -2,7 +2,7 @@ import { login } from '../Login/authslice.js';
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import './styles.css';
+import './Styles.css';
 import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
@@ -37,22 +37,28 @@ export default function LoginPage() {
             }
             const strUser = JSON.stringify(userInfo)
             localStorage.setItem("userInfo", strUser)
-            // navigate("/")
+            navigate("/dashboard")
         } catch (error) {
             console.log(error);
         }
     }
     const userRole = useSelector((state) => state.auth.Token);
     return (
-        <div class="login-card">
-            <h2>Login</h2>
-            <h3>Enter your credentials</h3>
-            <form class="login-form">
-                <input type="text" placeholder="email" value={email} onChange={emailHandleChange} />
-                <input type="password" placeholder="Password" value={password} onChange={passHandleChange} />
-                <a href="https://website.com">Forgot your password?</a>
-                <button type="button" onClick={loginClick}>LOGIN</button>
-            </form>
+        <div className="h-screen w-screen flex items-center justify-center bg-gray-800">
+            <div class="login-card">
+                <h2>Sign in</h2>
+                {/* <h3>Enter your credentials</h3> */}
+                <p className="text-lg font-poppins text-black mb-3">Don't have an account, yet? {' '}
+                    <span className="text-blue-400 underline font-poppins text-lg cursor-pointer" onClick={() => navigate('/register')}>Sign up</span>
+                </p>
+                <form class="login-form">
+                    <input type="text" placeholder="email" value={email} onChange={emailHandleChange} />
+                    <input type="password" placeholder="Password" value={password} onChange={passHandleChange} />
+                    <a href="https://website.com">Forgot your password?</a>
+                    <button type="button" onClick={loginClick}>LOGIN</button>
+                </form>
+            </div>
         </div>
+
     );
 }
