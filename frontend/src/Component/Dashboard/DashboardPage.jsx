@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import SideNav from "./SideNav/SideNav";
 import EmployeesPage from "../Pages/EmployeesPage";
-import DepartmentPage from "../Pages/DepartmentPage";
+import DepartmentsPage from "../Pages/DepartmentsPage";
 import RolesPage from "../Pages/RolesPage";
 import axios from "axios";
 
@@ -68,7 +68,7 @@ export default function DashboardPage(props) {
             case 'input-employees':
                 return <EmployeesPage />
             case 'input-department':
-                return <DepartmentPage />
+                return <DepartmentsPage />
             case 'input-roles':
                 return <RolesPage />
             default:

@@ -1,5 +1,5 @@
 import React from "react";
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Button } from "@chakra-ui/react";
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel } from "@chakra-ui/react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import titikbuta from "../../../Assets/Images/titikbuta.jpg";
