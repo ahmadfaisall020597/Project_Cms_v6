@@ -12,19 +12,19 @@ function ThisPage() {
     useEffect(() => {
         axios
             .get('https://localhost:44307/api/Employees')
-            .then((value) => setDashboards(value.data))
+            .then((value) => setDashboards(value.data.data))
     }, []);
 
-    // const dashboardElement = useMemo(() => dashboard.map((element) => (
-    //     <tr>
-    //         <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.firstName}</td>
-    //         <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.lastName}</td>
-    //         <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.email}</td>
-    //         <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.phone}</td>
-    //         <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.birthDate}</td>
-    //         <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.gender}</td>
-    //     </tr>
-    // )), [dashboard]);
+    const dashboardElement = useMemo(() => dashboards.map((element) => (
+        <tr>
+            <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.firstName}</td>
+            <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.lastName}</td>
+            <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.email}</td>
+            <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.phone}</td>
+            <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.birthDate}</td>
+            <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.gender}</td>
+        </tr>
+    )), [dashboards]);
     // console.log(dashboardElement)
 
     return (
@@ -53,6 +53,7 @@ function ThisPage() {
                                 <td className="border-collapse border-y border-y-gray-300 text-left p-2">{dashboard.gender}</td>
                             </tr>
                         )} */}
+                        {dashboardElement}
                     </tbody>
                 </table>
             </div>
