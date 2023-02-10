@@ -1,9 +1,6 @@
 import React from "react";
 import {
-    BellIcon,
     ChipIcon,
-    InboxIcon,
-    SearchIcon,
     UserCircleIcon,
 } from "@heroicons/react/outline";
 

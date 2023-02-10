@@ -1,7 +1,8 @@
 import React from "react";
 import { navLinks } from "./utils/NavDB";
 import { useRecoilState } from "recoil";
-import { activeNavItemState } from "../atoms/ActiveNavBarAtom";
+import { activeNavItemState } from "../../atoms/ActiveNavBarAtom";
+import { useNavigate } from "react-router";
 
 function NavBar() {
   return (
@@ -20,9 +21,10 @@ function NavBar() {
 }
 function NavItem({ link }) {
   const [activeNav, setActiveNav] = useRecoilState(activeNavItemState);
+  const navigator = useNavigate();
   return (
     <div
-      onClick={() => setActiveNav(link.id)}
+      onClick={() => navigator(link.link)} 
       key={link.id}
       className={`w-full flex items-center justify-start space-x-8 px-5 cursor-pointer
        group hover:border-gray-900 border-l-4 border-transparent ${activeNav === link.id && "border-gray-900 "
