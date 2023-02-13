@@ -1,6 +1,6 @@
 import { useToast, useDisclosure, Button } from "@chakra-ui/react"
 import axios from "axios"
-import React, { useState, useMemo } from "react"
+import React, { useState, useMemo, useEffect } from "react"
 import ImageEdit from '../../Assets/Images/edit.png'
 import ImageDelete from '../../Assets/Images/trash.png'
 
@@ -24,14 +24,14 @@ export default function EmployeesPage() {
     const [salary, setSalary] = useState("")
     const [gender, setGender] = useState("")
 
-
-    // useEffect(() => {
     const fetchData = async () => {
         const result = await axios("https://localhost:44307/api/Employees");
         setDatas(result.data.data);
     };
-    fetchData();
-    // }, []);
+    useEffect(() => {
+        fetchData();
+    }, [])
+
     console.log(datas)
 
     function formatDate(BirthDate) {
