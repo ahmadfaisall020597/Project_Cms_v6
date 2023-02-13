@@ -99,17 +99,17 @@ export default function EmployeesPage() {
             setTempId(element.id)
         }
         return (
-            <tr>
-                <td className="border-collapse border-y border-y-gray-300 text-left p-2">{index + 1}</td>
-                <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.nik}</td>
-                <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.firstName}</td>
-                <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.lastName}</td>
-                <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.phone}</td>
-                <td className="border-collapse border-y border-y-gray-300 text-left p-2">{formatDate(element.birthDate)}</td>
-                <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.email}</td>
-                <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.salary}</td>
-                <td className="border-collapse border-y border-y-gray-300 text-left p-2">{element.gender}</td>
-                <td className="border-collapse border-y border-y-gray-300 text-left flex flex-row items-center">
+            <tr className="border border-2">
+                <td className="text-md px-6 py-2">{index + 1}</td>
+                <td className="text-md px-6 py-2">{element.nik}</td>
+                <td className="text-md px-6 py-2">{element.firstName}</td>
+                <td className="text-md px-6 py-2">{element.lastName}</td>
+                <td className="text-md px-6 py-2">{element.phone}</td>
+                <td className="text-md px-6 py-2">{formatDate(element.birthDate)}</td>
+                <td className="text-md px-6 py-2">{element.email}</td>
+                <td className="text-md px-6 py-2">{element.salary}</td>
+                <td className="text-md px-6 py-2">{element.gender}</td>
+                <td className="border-collapse text-left flex flex-row items-center pt-7">
                     <Button margin="10px" colorScheme="blue" onClick={() => onEdit(element)}>{<img src={ImageEdit} />}</Button>
                     <Button margin="10px" colorScheme="red" onClick={onDelete}>{<img src={ImageDelete} />}</Button>
                 </td>
@@ -127,23 +127,25 @@ export default function EmployeesPage() {
             {/* top section*/}
             <div className="w-full items-start justify-start flex flex-col px-12 pt-3 pb-6">
                 <h1 className="font-bold text-xl xl:text-2xl pb-6 "> Employees Page </h1>
-                <table className="table-fixed w-full overflow-x-scroll">
-                    <thead className="bg-blue-300 overflow-x-scroll">
-                        <th className="border-collapse border-y border-y-gray-300 text-left p-2">NO</th>
-                        <th className="border-collapse border-y border-y-gray-300 text-left p-2">NIK</th>
-                        <th className="border-collapse border-y border-y-gray-300 text-left p-2">FirstName</th>
-                        <th className="border-collapse border-y border-y-gray-300 text-left p-2">LastName</th>
-                        <th className="border-collapse border-y border-y-gray-300 text-left p-2">Phone</th>
-                        <th className="border-collapse border-y border-y-gray-300 text-left p-2">Birtdate</th>
-                        <th className="border-collapse border-y border-y-gray-300 text-left p-2">Email</th>
-                        <th className="border-collapse border-y border-y-gray-300 text-left p-2">Salary</th>
-                        <th className="border-collapse border-y border-y-gray-300 text-left p-2">Gender</th>
-                        <th className="border-collapse border-y border-y-gray-300 text-left p-2">Action</th>
+                <div className="w-full items-start justify-start flex flex-col pt-3 pb-6 overflow-x-auto">
+                <table className="w-auto">
+                    <thead className="bg-blue-300 border border-2">
+                        <th className="text-md px-6 py-3">NO</th>
+                        <th className="text-md px-6 py-3">NIK</th>
+                        <th className="text-md px-6 py-3">FirstName</th>
+                        <th className="text-md px-6 py-3">LastName</th>
+                        <th className="text-md px-6 py-3">Phone</th>
+                        <th className="text-md px-6 py-3">Birtdate</th>
+                        <th className="text-md px-6 py-3">Email</th>
+                        <th className="text-md px-6 py-3">Salary</th>
+                        <th className="text-md px-6 py-3">Gender</th>
+                        <th className="text-md px-6 py-3">Action</th>
                     </thead>
                     <tbody>
                         {datasElement}
                     </tbody>
                 </table>
+                </div>
             </div>
         </div>
     )
