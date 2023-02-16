@@ -20,9 +20,9 @@ namespace Project_Cms_v6.Context
             modelBuilder.Entity<AccountRoles>().HasNoKey();
         }
 
-        /*        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-                {
-                    optionsBuilder.UseLazyLoadingProxies();
-                }*/
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+        }
     }
 }

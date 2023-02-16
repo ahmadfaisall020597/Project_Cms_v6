@@ -7,9 +7,9 @@ namespace Project_Cms_v6.Models
     {
         [ForeignKey("Roles")]
         public int RoleId { get; set; }
-        public Roles Roles { get; set; }
+        public virtual Roles Roles { get; set; }
         [ForeignKey("Accounts")]
         public string AccountNIK { get; set; }
-        public Accounts Accounts { get; set; }
+        public virtual Accounts Accounts { get; set; }
     }
 }

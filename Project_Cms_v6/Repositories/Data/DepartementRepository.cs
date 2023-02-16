@@ -7,7 +7,7 @@ namespace Project_Cms_v6.Repositories.Data
     {
         public  DepartementRepository(AppDbContext context) : base(context)
         {
-
+             
         }
     }
 }

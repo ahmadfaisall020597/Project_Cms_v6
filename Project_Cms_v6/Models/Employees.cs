@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -18,14 +19,14 @@ namespace Project_Cms_v6.Models
         public Gender Gender { get; set; }
         [ForeignKey("Manager")]
         public string? Manager_Id { get; set; }
-        public Accounts Accounts { get; set; }
-        public Employees? Manager { get; set; }
-        public List<Employees>? EmployeesManager { get; set; }
+        public virtual Accounts Accounts { get; set; }
+        public virtual Employees? Manager { get; set; }
+        public virtual List<Employees>? EmployeesManager { get; set; }
         public int? Departments_Id { get; set; }
         [ForeignKey("Departments_Id")]
-        public Departments? Departments { get; set; }
+        public virtual Departments? Departments { get; set; }
         [InverseProperty("Manager")]
-        public Departments Manager_Department { get; set; }
+        public virtual Departments Manager_Department { get; set; }
 
     }
     public enum Gender

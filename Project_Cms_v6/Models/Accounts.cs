@@ -10,6 +10,6 @@ namespace Project_Cms_v6.Models
         public string NIK { get; set; }
         public string Password { get; set; }
         [ForeignKey("NIK")]
-        public Employees Employees { get; set; }
+        public virtual Employees Employees { get; set; }
     }
 }

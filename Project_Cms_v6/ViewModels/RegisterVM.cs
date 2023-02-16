@@ -13,6 +13,7 @@ namespace Project_Cms_v6.ViewModels
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? BirthDate { get; set; }
+        public int? Salary { get; set; }
         public string? Email { get; set; } 
         public Gender? Gender { get; set; }
         public int? Departments_Id { get; set; }

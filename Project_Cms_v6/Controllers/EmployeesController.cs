@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Project_Cms_v6.Base;
 using Project_Cms_v6.Models;
 using Project_Cms_v6.Repositories.Data;
+using Project_Cms_v6.Repositories.Interface;
 using Project_Cms_v6.ViewModels;
 using System.Net;
 
@@ -40,6 +41,32 @@ namespace Project_Cms_v6.Controllers
                     Message = "Internal server error",
                     Data = response
                 });
+            }
+        }
+        [HttpGet]
+        [Route("Employees")]
+        public ActionResult GetAllEmployees() 
+        {
+            var get = employeesRepository.GetAllEmployees();
+            if (get.Count() != 0)
+            {
+                return StatusCode(200,
+                    new
+                    {
+                        status = HttpStatusCode.OK,
+                        message = get.Count() + "Data Ditemukan",
+                        Data = get
+                    });
+            }
+            else
+            {
+                return StatusCode(404,
+                    new
+                    {
+                        status = HttpStatusCode.NotFound,
+                        message = get.Count() + "Data tidak ditemukan",
+                        Data = get
+                    });
             }
         }
     }

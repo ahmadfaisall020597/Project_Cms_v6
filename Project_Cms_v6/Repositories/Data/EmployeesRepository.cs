@@ -58,6 +58,7 @@ namespace Project_Cms_v6.Repositories.Data
                 parameters.Add("@Email", registerVM.Email);
                 parameters.Add("@BirthDate", registerVM.BirthDate);
                 parameters.Add("@Gender", registerVM.Gender);
+                parameters.Add("@Salary", registerVM.Salary);
                 parameters.Add("@Phone", registerVM.Phone);
                 parameters.Add("@Departments_Id", registerVM.Departments_Id);
                 parameters.Add("@RoleId", registerVM.RoleId);
@@ -65,9 +66,15 @@ namespace Project_Cms_v6.Repositories.Data
                 return insert;
             }
         }
-        public IEnumerable<Employees> Read()
+
+        public IEnumerable<EmployeesVM> GetAllEmployees()
             {
-                throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(_configuration["ConnectionStrings:APICms"]))
+            {
+                var spName = "SP_EmployeesGetAll";
+                var parameters = connection.Query<EmployeesVM>(spName, commandType: CommandType.StoredProcedure);
+                return parameters;
+            }
             }
 
             public Employees Read(string key)
